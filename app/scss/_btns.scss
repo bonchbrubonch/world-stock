@@ -1,0 +1,42 @@
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	width: fit-content;
+	outline: none;
+	padding: 11.5px 32px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 19px;
+	text-transform: uppercase;
+	border-radius: 3px;
+	transition: linear .2s;
+	border-color: transparent;
+
+	img {
+		margin: 0 0 0 10px;
+	}
+
+	&--black {
+		background-color: #000;
+		color: #fff;
+
+		&:hover {
+			background-color: #D31217;
+		}
+	}
+
+	&--white {
+		background-color: #fff;
+		color: #000;
+
+		&:hover {
+			color: #fff;
+			background-color: #D31217;
+		}
+	}
+
+
+}
