@@ -74,6 +74,18 @@ $(function () {
   });
 
 
+  $('.dss-order__item').on('click', function () {
+    const $this = $(this);
+    const $content = $this.next();
+
+    $('.dss-order__item').not($this).removeClass('active').next().slideUp(300);
+
+    $this.toggleClass('active');
+    $content.slideToggle(300);
+  });
+
+
+
 });
 
 
