@@ -178,7 +178,8 @@ body.lock {
 		transition: linear .2s;
 
 		&:hover {
-			text-decoration-color: rgba(0, 1, 1, 1);
+			color: rgba(211, 18, 23, 1);
+			text-decoration-color: rgba(211, 18, 23, 1);
 		}
 	}
 

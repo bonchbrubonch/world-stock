@@ -17,12 +17,15 @@ $(function () {
       from: 1000,
       to: 7000,
       postfix: " ₴",
-      onStart: updateInputs,
       onChange: updateInputs,
       onFinish: updateInputs
     });
 
     var range = $("#price-range").data("ionRangeSlider");
+
+    // Спочатку інпути порожні
+    $("#price-min").val("");
+    $("#price-max").val("");
 
     function updateInputs(data) {
       $("#price-min").val(data.from);
@@ -43,6 +46,8 @@ $(function () {
       range.update({ to: val });
     });
   }
+
+
 
   if ($(".accordeon").length) {
     $(".accordeon dd").hide().prev().click(function () {
@@ -84,6 +89,10 @@ $(function () {
     $content.slideToggle(300);
   });
 
+  //
+  $('.header__has-child > span').on('click', function () {
+    $(this).next().slideToggle(300);
+  });
 
 
 });
@@ -96,15 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const searchBtn = document.querySelector('.header__search');
   const searchForm = document.querySelector('.header__search-form');
+  const filterBtn = document.querySelector('.dss-filter__filter-btn');
+  const filterClose = document.querySelector('.dss-filter__close');
+  const filterLeft = document.querySelector('.dss-filter__left');
+  const basketBtn = document.querySelector('.header__bascket');
+  const basket = document.querySelector('.pst-basket');
+  const closeBtn = document.querySelector('.pst-basket__close');
+  const menuBtn = document.querySelector('.header__menu-btn');
+  const header = document.querySelector('.header');
+  const headerBox = document.querySelector('.header__box');
 
+  // --- Пошук ---
   if (searchBtn && searchForm) {
-    searchBtn.addEventListener('click', function (e) {
+    searchBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       searchForm.classList.toggle('active');
       updateBodyLock();
     });
 
-    document.addEventListener('click', function (e) {
+    document.addEventListener('click', (e) => {
       if (!searchForm.contains(e.target) && !searchBtn.contains(e.target)) {
         searchForm.classList.remove('active');
         updateBodyLock();
@@ -112,10 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const filterBtn = document.querySelector('.dss-filter__filter-btn');
-  const filterClose = document.querySelector('.dss-filter__close');
-  const filterLeft = document.querySelector('.dss-filter__left');
-
+  // --- Фільтр ---
   if (filterBtn && filterLeft) {
     filterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -143,10 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const basketBtn = document.querySelector('.header__bascket');
-  const basket = document.querySelector('.pst-basket');
-  const closeBtn = document.querySelector('.pst-basket__close');
-
+  // --- Кошик ---
   if (basketBtn && basket) {
     basketBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -174,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Кабінет ---
   function initCabinet() {
     const cabinetBtn = document.querySelector('.header__cabinet');
     const cabinetLeft = document.querySelector('.dss-cabinet__left');
@@ -215,20 +229,38 @@ document.addEventListener('DOMContentLoaded', () => {
   initCabinet();
   window.addEventListener('resize', initCabinet);
 
+  // --- Меню ---
+  if (menuBtn && header && headerBox) {
+    menuBtn.addEventListener('click', () => {
+      header.classList.toggle('open');
+      headerBox.classList.toggle('open');
+      updateBodyLock();
+    });
+
+    document.querySelectorAll('.header__nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        header.classList.remove('open');
+        headerBox.classList.remove('open');
+        updateBodyLock();
+      });
+    });
+  }
+
+  // --- Централізована логіка ---
   function updateBodyLock() {
-    const searchActive = searchForm && searchForm.classList.contains('active');
-    const filterOpen = filterLeft && filterLeft.classList.contains('open');
-    const basketOpen = basket && basket.classList.contains('open');
+    const searchActive = searchForm?.classList.contains('active');
+    const filterOpen = filterLeft?.classList.contains('open');
+    const basketOpen = basket?.classList.contains('open');
     const cabinetOpen = document.querySelector('.dss-cabinet__left')?.classList.contains('open');
-    if (searchActive || filterOpen || basketOpen || cabinetOpen) {
+    const menuOpen = header?.classList.contains('open') || headerBox?.classList.contains('open');
+
+    if (searchActive || filterOpen || basketOpen || cabinetOpen || menuOpen) {
       body.classList.add('lock');
     } else {
       body.classList.remove('lock');
     }
   }
 });
-
-
 
 
 // ===== SIZE =====
@@ -254,7 +286,7 @@ if (showPassBtn) {
 if (document.querySelector('.dss-brand__slider')) {
   var swiper = new Swiper(".dss-brand__slider", {
     slidesPerView: 4,
-    spaceBetween: 20,
+    spaceBetween: 10,
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
@@ -266,15 +298,15 @@ if (document.querySelector('.dss-brand__slider')) {
     breakpoints: {
       768: {
         slidesPerView: 5,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       1024: {
         slidesPerView: 7,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       1200: {
         slidesPerView: 9,
-        spaceBetween: 30,
+        spaceBetween: 20,
       },
     },
   });
@@ -320,7 +352,37 @@ if (document.querySelector('.mySwiper') && document.querySelector('.mySwiper2'))
     }
   }
 }
+//
+const thumbsSwiperEl = document.querySelector('.thumbsSwiper');
+const mainSwiperEl = document.querySelector('.mainSwiper');
 
+if (thumbsSwiperEl && mainSwiperEl) {
+  document.querySelectorAll('.dss-item').forEach(item => {
+    const thumbsSwiperEl = item.querySelector('.thumbsSwiper');
+    const mainSwiperEl = item.querySelector('.mainSwiper');
+
+    if (thumbsSwiperEl && mainSwiperEl) {
+      const thumbsSwiper = new Swiper(thumbsSwiperEl, {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+        slideToClickedSlide: true, // 👈 клік по тумбі перемикає головний слайд
+        navigation: {
+          nextEl: item.querySelector('.swiper-button-next'),
+          prevEl: item.querySelector('.swiper-button-prev'),
+        },
+      });
+
+      const mainSwiper = new Swiper(mainSwiperEl, {
+        spaceBetween: 10,
+        thumbs: {
+          swiper: thumbsSwiper,
+        },
+      });
+    }
+  });
+}
 
 
 // ===== FAVORITE =====

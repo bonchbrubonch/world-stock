@@ -1,3 +1,78 @@
+@media (min-width: 991px) {
+	.header__item-child-inner {
+		display: flex;
+		margin: 0 0 0 -10px;
+
+		.header__item-col {
+			width: calc(14.9% - 10px) !important;
+			margin: 0 0 0 10px !important;
+		}
+
+		.header__item-brands {
+			display: none;
+		}
+	}
+
+	.header__item-child {
+		padding: 45px 0;
+		position: absolute;
+		background-color: #fff;
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		opacity: 0;
+		pointer-events: none;
+		transition: linear .2s;
+		box-shadow: 0px 330px 92px 0px rgba(0, 0, 0, 0), 0px 211px 84px 0px rgba(0, 0, 0, 0.01), 0px 119px 71px 0px rgba(0, 0, 0, 0.03), 0px 53px 53px 0px rgba(0, 0, 0, 0.04), 0px 13px 29px 0px rgba(0, 0, 0, 0.05);
+		background: rgba(255, 255, 255, 1);
+
+		.container {
+			display: flex;
+		}
+	}
+
+	.header__has-child {
+		&:hover {
+			.header__item-child {
+				opacity: 1;
+				pointer-events: inherit;
+			}
+		}
+	}
+
+	.header__item-col:nth-child(1) {
+		max-width: 156px;
+		width: 100%;
+		margin: 0 60px 0 0;
+	}
+
+	.header__item-col:nth-child(2) {
+		max-width: 156px;
+		width: 100%;
+		margin: 0 60px 0 0;
+	}
+
+	.header__item-col:nth-child(3) {
+		max-width: 156px;
+		width: 100%;
+		margin: 0 60px 0 0;
+	}
+
+	.header__item-col:nth-child(4) {
+		margin: 0 20px 0 0;
+		max-width: 210px;
+		width: 100%;
+	}
+
+	.header__item-col:nth-child(5) {
+		margin: 0 0 0 auto;
+	}
+
+
+
+
+}
+
 @media (max-width: 1300px) {
 	.dss-basket__col:nth-child(1) {
 		max-width: 525px;
@@ -74,6 +149,10 @@
 }
 
 @media (max-width: 1200px) {
+	.dss-item .thumbsSwiper .swiper-slide {
+		height: 60px;
+	}
+
 	.header__logo {
 		width: 150px;
 	}
@@ -221,21 +300,80 @@
 		max-width: 100%;
 		margin: 0;
 		position: fixed;
-		top: 60px;
+		top: 46px;
 		right: 0;
 		left: 0;
 		width: 100%;
-		height: calc(100vh - 60px);
-		z-index: 9999;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
+		height: calc(80vh - 46px);
 		overflow: auto;
+		z-index: 99999;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		justify-content: flex-end;
 		transition: linear .4s;
-		transform: translateX(-120%);
+		transform: translateX(120%);
 		background-color: #fff;
 		opacity: 0;
 	}
+
+	.header__box.open {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	.header__nav {
+		overflow: auto;
+	}
+
+	.header__nav>ul {
+		flex-direction: column;
+	}
+
+	.header__nav li {
+		margin: 0;
+	}
+
+	.header__nav>ul>li,
+	.header__has-child>span {
+		display: block;
+		margin: 0 0 6px 0;
+		font-size: 12px;
+	}
+
+	.header__has-child>span,
+	.header__nav>ul>li {
+		margin: 0;
+	}
+
+	.header__item-col:last-child,
+	.header__item-col:nth-child(4) {
+		display: none;
+	}
+
+	.header__item-child-inner {
+		.header__item-col {
+			display: none;
+		}
+	}
+
+	.header__item-child {
+		display: none;
+	}
+
+	.header__item-title {
+		font-size: 12px;
+		margin: 0 0 2px 0;
+	}
+
+	.header__item-list {
+		margin: 0 0 12px 0;
+
+		a {
+			color: rgba(119, 119, 119, 1);
+		}
+	}
+
 
 	.header__search {
 		margin: 0 0 0 auto;
@@ -254,13 +392,21 @@
 		}
 	}
 
-	.header__cabinet,
-	.header__bascket {
+	.header__cabinet {
 		margin: 0 0 0 7px;
 
 		img {
 			width: 60%;
 			height: 80%;
+		}
+	}
+
+	.header__bascket {
+		margin: 0 0 0 7px;
+
+		img {
+			width: 95%;
+			height: 95%;
 		}
 	}
 
@@ -282,6 +428,103 @@
 		top: 46px;
 	}
 
+	.header__btn-box {
+		margin: 0 0 30px 0;
+		width: 100%;
+
+		.btn {
+			width: 100%;
+		}
+
+		ul {
+			width: 100%;
+		}
+	}
+
+	.header__nav {
+		width: 100%;
+	}
+
+	.header__has-child>span {
+		position: relative;
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 0;
+			width: 9px;
+			height: 1.25px;
+			background-color: rgba(119, 119, 119, 1);
+			transition: linear .2s;
+		}
+
+		&::before {
+			transform: translateY(-50%) rotate(90deg);
+		}
+	}
+
+	.header__nav>ul>li:first-child {
+		border-top: 1px solid rgba(237, 237, 237, 1);
+	}
+
+	.header__nav>ul>li {
+		padding: 6px 0;
+		border-bottom: 1px solid rgba(237, 237, 237, 1);
+	}
+
+	.header__nav>ul>li>a {
+		font-size: 12px;
+	}
+
+	.header__item-brands {
+		max-width: 360px;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 40px 0 0 -20px;
+
+		.header__item-brand {
+			width: calc(33.33333% - 20px);
+			margin: 0 0 20px 20px;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				display: block;
+			}
+		}
+	}
+
+	.header.open {
+		.header__menu-btn::before {
+			bottom: auto;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		.header__menu-btn span {
+			opacity: 0;
+		}
+
+		.header__menu-btn::after {
+			bottom: auto;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+
+	.pst-basket {
+		height: calc(100vh - 46px);
+	}
+
+
+
+
 	.footer__col:nth-child(2) {
 		margin: 0 95px 0 auto;
 	}
@@ -291,16 +534,17 @@
 		position: fixed;
 		top: 46px;
 		bottom: 0;
-		left: 0;
-		z-index: 999;
+		right: 0;
+		z-index: 99999;
 		background-color: #fff;
 		max-width: 380px;
 		width: 100%;
 		height: calc(100vh - 46px);
 		overflow: auto;
-		transform: translateX(-100%);
+		transform: translateX(100%);
 		opacity: 0;
 		transition: linear .2s;
+		margin: 0 0 0 20px;
 	}
 
 	.dss-filter__left.open {
@@ -470,16 +714,17 @@
 		position: fixed;
 		top: 46px;
 		bottom: 0;
-		left: 0;
+		right: 0;
 		z-index: 999;
 		background-color: #fff;
 		max-width: 380px;
 		width: 100%;
 		height: calc(100vh - 46px);
 		overflow: auto;
-		transform: translateX(-100%);
+		transform: translateX(100%);
 		opacity: 0;
 		transition: linear .2s;
+		margin: 0 0 0 20px;
 	}
 
 	.dss-cabinet__left.open {
@@ -531,6 +776,10 @@
 
 
 @media (max-width: 767px) {
+	.dss-item .thumbsSwiper .swiper-slide {
+		height: 45px;
+	}
+
 	.dss-basket {
 		.size-wrap {
 			width: 73vw !important;
@@ -696,11 +945,6 @@
 			object-fit: contain;
 			display: block;
 		}
-	}
-
-	.dss-item__img {
-		padding-bottom: 131%;
-		margin: 0 0 9px 0;
 	}
 
 	.dss-item__gender {
@@ -914,13 +1158,13 @@
 	.dss-card__type-col:nth-child(1) .dss-card__type-title {
 		margin: 0 0 4px 0;
 		line-height: 110%;
-		font-size: 8px;
+		font-size: 8px !important;
 	}
 
 	.dss-card__type-title {
 		margin: 0 0 4px 0;
 		line-height: 110%;
-		font-size: 6px;
+		font-size: 6px !important;
 	}
 
 	.dss-card__col-wrap .dss-size {
@@ -1172,7 +1416,7 @@
 	.dss-information__title-three {
 		font-size: 14px;
 		max-width: 230px;
-		margin: 0 auto;
+		margin: 0 auto 3px;
 	}
 
 	.dss-information__text p {
