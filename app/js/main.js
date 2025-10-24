@@ -51,27 +51,32 @@ $(function () {
 
   if ($(".accordeon").length) {
     $(".accordeon dd").hide().prev().click(function () {
+      const $parent = $(this).parent();
+
+      if ($parent.hasClass("open")) {
+        $parent.removeClass("open");
+        $(this).removeClass("active").next().slideUp();
+        return;
+      }
+
       $(this)
         .parents(".accordeon")
         .find("dd")
-        .not(this)
         .slideUp()
         .prev()
-        .removeClass("active");
-      $(this)
-        .next()
-        .not(":visible")
-        .slideDown()
-        .prev()
-        .addClass("active");
-      $("dl").removeClass("open");
-      $(this).parent().toggleClass("open");
+        .removeClass("active")
+        .parent()
+        .removeClass("open");
+
+      $(this).addClass("active").next().slideDown();
+      $parent.addClass("open");
     });
 
     const $firstItem = $(".accordeon dt").first();
     $firstItem.addClass("active").parent().addClass("open");
     $firstItem.next("dd").show();
   }
+
 
   $('.preference__title').on('click', function () {
     $(this).toggleClass('active');
@@ -98,8 +103,6 @@ $(function () {
 });
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
@@ -114,18 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.header__menu-btn');
   const header = document.querySelector('.header');
   const headerBox = document.querySelector('.header__box');
+  const headerBtnBox = document.querySelector('.header__btn-box'); // ← додано
 
   // --- Пошук ---
   if (searchBtn && searchForm) {
     searchBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       searchForm.classList.toggle('active');
+
+      if (searchForm.classList.contains('active')) {
+        body.classList.add('body-index');
+      } else {
+        body.classList.remove('body-index');
+      }
+
       updateBodyLock();
     });
 
     document.addEventListener('click', (e) => {
       if (!searchForm.contains(e.target) && !searchBtn.contains(e.target)) {
         searchForm.classList.remove('active');
+        body.classList.remove('body-index');
         updateBodyLock();
       }
     });
@@ -246,6 +258,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- header__btn-box ---
+  if (headerBtnBox) {
+    headerBtnBox.addEventListener('click', (e) => {
+      e.stopPropagation();
+      headerBtnBox.classList.toggle('open');
+      updateBodyLock();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!headerBtnBox.contains(e.target)) {
+        headerBtnBox.classList.remove('open');
+        updateBodyLock();
+      }
+    });
+  }
+
   // --- Централізована логіка ---
   function updateBodyLock() {
     const searchActive = searchForm?.classList.contains('active');
@@ -253,14 +281,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const basketOpen = basket?.classList.contains('open');
     const cabinetOpen = document.querySelector('.dss-cabinet__left')?.classList.contains('open');
     const menuOpen = header?.classList.contains('open') || headerBox?.classList.contains('open');
+    const headerBtnBoxOpen = headerBtnBox?.classList.contains('open');
 
-    if (searchActive || filterOpen || basketOpen || cabinetOpen || menuOpen) {
+    if (searchActive || filterOpen || basketOpen || cabinetOpen || menuOpen || headerBtnBoxOpen) {
       body.classList.add('lock');
     } else {
       body.classList.remove('lock');
     }
   }
 });
+
 
 
 // ===== SIZE =====
@@ -430,3 +460,26 @@ if (document.querySelectorAll('.size-wrap__inner').length) {
     });
   });
 }
+
+//
+const hasChildElements = document.querySelectorAll('.header__has-child');
+
+hasChildElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (window.innerWidth >= 991) {
+      document.body.classList.add('lock');
+    }
+  });
+
+  el.addEventListener('mouseleave', () => {
+    if (window.innerWidth >= 991) {
+      document.body.classList.remove('lock');
+    }
+  });
+});
+
+
+//
+
+
+

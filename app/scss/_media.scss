@@ -1,4 +1,29 @@
 @media (min-width: 991px) {
+
+	.header__nav>ul>li>a,
+	.header__nav>ul>li>span {
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -30px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			height: 3px;
+			background-color: #000101;
+			transition: linear .2s;
+			opacity: 0;
+		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+
 	.header__item-child-inner {
 		display: flex;
 		margin: 0 0 0 -10px;
@@ -114,6 +139,11 @@
 			margin: 0 4px 0 0;
 			border-right: 1px solid #c8c8c8;
 		}
+
+	}
+
+	.dss-basket__mob-opt span:last-child {
+		border: none !important;
 	}
 
 	.dss-order .dss-basket__content-top {
@@ -199,6 +229,8 @@
 	.dss-order__item-title {
 		font-size: 12px;
 		text-decoration: underline;
+		text-decoration-color: #c5c5c5;
+		text-underline-offset: 3px;
 	}
 
 	.dss-order__item-date,
@@ -240,8 +272,27 @@
 
 
 @media (max-width: 991px) {
+
 	.pst-basket {
 		top: 47px;
+	}
+
+	.header__item-list {
+		padding: 0 0 0 10px;
+
+		a {
+			font-size: 12px;
+		}
+	}
+
+	.header__show-all-item {
+		margin: 5px 0 10px 0;
+		display: flex;
+		color: rgba(119, 119, 119, 1);
+		font-size: 12px !important;
+		font-weight: 400 !important;
+		line-height: 16px;
+		text-transform: inherit !important;
 	}
 
 	.header__menu-btn {
@@ -396,8 +447,8 @@
 		margin: 0 0 0 7px;
 
 		img {
-			width: 60%;
-			height: 80%;
+			width: 53%;
+			height: 53%;
 		}
 	}
 
@@ -717,7 +768,7 @@
 		right: 0;
 		z-index: 999;
 		background-color: #fff;
-		max-width: 380px;
+		max-width: 295px;
 		width: 100%;
 		height: calc(100vh - 46px);
 		overflow: auto;
@@ -778,6 +829,22 @@
 @media (max-width: 767px) {
 	.dss-item .thumbsSwiper .swiper-slide {
 		height: 45px;
+	}
+
+	.modal {
+		padding: 55px 20px;
+	}
+
+	.modal__title {
+		font-size: 14px;
+	}
+
+	.modal__text {
+		font-size: 12px;
+	}
+
+	.preference__delete span {
+		font-size: 11px;
 	}
 
 	.dss-basket {
@@ -1151,6 +1218,10 @@
 		margin: 0 0 0 2px !important;
 	}
 
+	.size-wrap__line input {
+		font-size: 9px !important;
+	}
+
 	.size-wrap__line {
 		margin: 0 0 2px 0;
 	}
@@ -1363,7 +1434,13 @@
 	}
 
 	.dst-form__group input {
-		height: 40px;
+		height: 28px;
+		padding: 2px 15px;
+		font-size: 11px !important;
+
+		&::placeholder {
+			font-size: 11px !important;
+		}
 	}
 
 	.dst-form__show-pass {
@@ -1494,17 +1571,19 @@
 
 	.preference__top-links {
 		width: 100%;
-		margin: 0 0 10px 0;
+		margin: 0;
 		border-bottom: 1px solid #ededed;
 	}
 
 	.preference__top-box {
+		margin: 10px 0 0 0;
 		width: 100%;
 		display: flex;
 		justify-content: flex-end;
 	}
 
 	.preference__top-link {
+		margin: 5px 0 0 0;
 		font-size: 12px;
 		padding: 6px 16px;
 	}

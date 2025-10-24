@@ -40,28 +40,42 @@ textarea {
 	}
 }
 
-/* Для number */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
-
-/* Для search */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
 	-webkit-appearance: none;
 }
-
-/* Для date */
+input[type="search"] {
+	-moz-appearance: textfield;
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
 	display: none;
+	-webkit-appearance: none;
 }
-
-/* Для range */
+input[type="date"] {
+	-moz-appearance: textfield;
+	position: relative;
+}
 input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 }
+input[type="range"]::-moz-range-thumb {
+	-moz-appearance: none;
+	border: none;
+	background: transparent;
+}
+input[type="range"]::-moz-range-track {
+	-moz-appearance: none;
+	background: transparent;
+}
+
 
 
 select {
@@ -112,6 +126,12 @@ body.lock {
 		width: 100%;
 		height: 100%;
 		background-color: rgb(#000, .2);
+	}
+}
+
+body.body-index {
+	&::after {
+		z-index: 999;
 	}
 }
 
