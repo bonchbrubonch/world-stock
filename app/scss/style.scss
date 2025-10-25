@@ -1995,8 +1995,8 @@
 	max-width: 440px;
 	width: 100%;
 	background-color: #fff;
-	// transform: translateX(100%);
-	// opacity: 0;
+	transform: translateX(100%);
+	opacity: 0;
 	transition: linear .3s;
 
 	&__inner {
