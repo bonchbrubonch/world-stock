@@ -588,7 +588,7 @@
 		right: 0;
 		z-index: 99999;
 		background-color: #fff;
-		max-width: 380px;
+		max-width: 300px;
 		width: 100%;
 		height: calc(100vh - 46px);
 		overflow: auto;
@@ -795,38 +795,20 @@
 		padding: 0;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	.dss-basket {
+		.dss-card__type-title {
+			margin: 0 0 6px 0;
+		}
+	}
 
 
 }
 
 
 @media (max-width: 767px) {
+
+
+
 	.dss-item .thumbsSwiper .swiper-slide {
 		height: 45px;
 	}
@@ -869,6 +851,21 @@
 
 	.dss-filter__col-subtitle {
 		font-size: 12px;
+		margin: 0 0 10px 0;
+	}
+
+	.dss-filter__col-subtitle span {
+		width: 10px;
+		height: 10px;
+	}
+
+	.dss-filter__col-subtitle span::after,
+	.dss-filter__col-subtitle span::before {
+		height: 1px;
+	}
+
+	.dss-filter__choicen-title {
+		font-size: 9px;
 	}
 
 	.footer__logo {
