@@ -1242,7 +1242,7 @@
 	.dss-card__type-box {
 		width: 34px;
 		height: 33px;
-		font-size: 9px;
+		font-size: 9px !important;
 	}
 
 	.dss-card__col-wrap-twoo {
@@ -1368,7 +1368,7 @@
 	}
 
 	.pst-basket .dss-card__wrap .size-wrap {
-		max-width: 215px !important;
+		max-width: 200px !important;
 		width: 100% !important;
 	}
 
@@ -1378,7 +1378,7 @@
 
 	.pst-basket {
 		.dss-card__col-wrap {
-			max-width: 275px;
+			max-width: 255px;
 		}
 
 		.dss-card__type-col:nth-child(1) {
