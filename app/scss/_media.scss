@@ -447,8 +447,8 @@
 		margin: 0 0 0 7px;
 
 		img {
-			width: 53%;
-			height: 53%;
+			width: 49%;
+			height: 49%;
 		}
 	}
 
@@ -1256,6 +1256,7 @@
 
 	.dss-card {
 		padding: 0 0 20px 0;
+		overflow: hidden;
 	}
 
 	.description .btn {
@@ -1367,7 +1368,7 @@
 	}
 
 	.pst-basket .dss-card__wrap .size-wrap {
-		max-width: 222px !important;
+		max-width: 215px !important;
 		width: 100% !important;
 	}
 
