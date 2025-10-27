@@ -1368,7 +1368,7 @@
 	}
 
 	.pst-basket .dss-card__wrap .size-wrap {
-		max-width: 200px !important;
+		max-width: 184px !important;
 		width: 100% !important;
 	}
 
@@ -1378,7 +1378,7 @@
 
 	.pst-basket {
 		.dss-card__col-wrap {
-			max-width: 255px;
+			max-width: 238px;
 		}
 
 		.dss-card__type-col:nth-child(1) {
@@ -1387,6 +1387,10 @@
 
 		.dss-available {
 			margin: 6px 0 0 0;
+		}
+
+		.dss-card__type-col:nth-child(2) {
+			margin: 0 5px 0 -3px;
 		}
 	}
 
