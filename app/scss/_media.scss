@@ -27,6 +27,7 @@
 	.header__item-child-inner {
 		display: flex;
 		margin: 0 0 0 -10px;
+		width: 100%;
 
 		.header__item-col {
 			width: calc(14.9% - 10px) !important;
@@ -37,6 +38,8 @@
 			display: none;
 		}
 	}
+
+
 
 	.header__item-child {
 		padding: 45px 0;

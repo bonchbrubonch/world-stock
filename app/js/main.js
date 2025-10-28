@@ -95,9 +95,13 @@ $(function () {
   });
 
   //
-  $('.header__has-child > span').on('click', function () {
-    $(this).next().slideToggle(300);
-  });
+  if ($(window).width() <= 991) {
+    $('.header__has-child > span').on('click', function () {
+      $(this).next().slideToggle(300);
+    });
+  }
+і
+
 
 
 });
