@@ -121,10 +121,7 @@
 		}
 	}
 
-	.dss-order__box-item-col:nth-child(2),
-	.dss-order__box-item-col:nth-child(3) {
-		display: none;
-	}
+
 
 	.dss-order {
 		.dss-basket__mob-opt {
@@ -153,28 +150,58 @@
 		margin: 0;
 	}
 
-	.dss-order__box-top {
-		flex-wrap: wrap;
-	}
-
-	.dss-order__top-col {
-		width: 100%;
-	}
-
 	.dss-order__top-col:nth-child(3) {
-		margin: 0;
+		margin: 0 0 0 10px;
 	}
 
 	.dss-order .dss-card__wrap .dss-available {
 		flex-shrink: 0;
 	}
 
+	.dss-order__top-col:nth-child(2) {
+		max-width: 325px;
+		width: 100%;
+	}
 
+	.dss-order__box-item-col:nth-child(2),
+	.dss-order__box-item-col:nth-child(3) {
+		width: 12%;
+		font-size: 11px;
+		padding: 20px 5px;
+	}
 
+	.dss-order__box-item-col:nth-child(2) {
+		margin: 0 0 0 auto;
+	}
 
+	.dss-order {
+		.dss-card__wrap {
+			max-width: 477px;
+		}
 
+		.dss-card__type-col {
+			.size-wrap {
+				max-width: 367px;
+				width: 100%;
+			}
+		}
+	}
 
+	.dss-order__box-item-col:nth-child(1) {
+		width: 82%;
+	}
 
+	.dss-cabinet__right {
+		max-width: 700px;
+	}
+
+	.dss-order__img {
+		height: auto;
+	}
+
+	.dss-order__box-item-col:nth-child(1) {
+		width: 75%;
+	}
 
 
 
@@ -252,29 +279,13 @@
 		height: 23px;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
 @media (max-width: 991px) {
+	.dss-cabinet__right {
+		max-width: 100%;
+	}
 
 	.pst-basket {
 		top: 47px;
@@ -573,7 +584,7 @@
 	}
 
 	.pst-basket {
-		height: calc(100vh - 46px);
+		height: calc(100dvh - 46px);
 	}
 
 
@@ -811,6 +822,15 @@
 @media (max-width: 767px) {
 
 
+	.dss-order__box-top {
+		flex-wrap: wrap;
+	}
+
+	.dss-order__top-col {
+		max-width: 100% !important;
+		width: 100%;
+		margin: 0 0 20px 0 !important;
+	}
 
 	.dss-item .thumbsSwiper .swiper-slide {
 		height: 45px;
@@ -997,7 +1017,7 @@
 	}
 
 	.dss-item__stickers {
-		top: 6px;
+		top: 10px;
 	}
 
 	.dss-item__add-favorite {
@@ -1086,8 +1106,14 @@
 		font-size: 11px;
 	}
 
-	.dss-card__right-col:nth-child(2) {
-		max-width: 199px;
+	.dss-card__right-col:nth-child(2),
+	.dss-card__right-col-wrap {
+		max-width: 100%;
+	}
+
+	.dss-card__col-line {
+		max-width: 100%;
+		justify-content: space-between;
 	}
 
 	.dss-card__col-sup {
@@ -1337,7 +1363,7 @@
 
 	.pst-basket {
 		max-width: 320px;
-		height: calc(100vh - 46px);
+		height: calc(100dvh - 46px);
 
 		.btn {
 			font-size: 10px;
@@ -1449,7 +1475,7 @@
 	}
 
 	.dst-form__show-pass {
-		top: 26px;
+		top: 20px;
 		right: 10px;
 
 		img {
@@ -1718,6 +1744,15 @@
 				width: calc(100vw - 115px) !important;
 			}
 		}
+	}
+
+	.dss-order .dss-card__wrap {
+		max-width: 100%;
+	}
+
+	.dss-order__box-item-col:nth-child(2),
+	.dss-order__box-item-col:nth-child(3) {
+		display: none;
 	}
 
 	.dss-personal__item-inner {

@@ -1737,7 +1737,7 @@
 		}
 
 		&::-webkit-scrollbar {
-			height: 4px;
+			height: 6px;
 			background-color: #F2F2F2;
 			border-radius: 4px;
 		}
@@ -2013,7 +2013,7 @@
 	position: fixed;
 	z-index: 99999;
 	top: 83px;
-	height: calc(100vh - 82px);
+	height: calc(100dvh - 82px);
 	right: 0;
 	max-width: 440px;
 	width: 100%;
@@ -3401,6 +3401,13 @@
 		}
 	}
 
+	.dss-card__wrap-line {
+		color: #777;
+	}
+
+	.dss-card__col-wrap {
+		margin-top: 15px;
+	}
 
 }
 
