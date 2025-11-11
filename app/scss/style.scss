@@ -1194,6 +1194,11 @@
 		.mySwiper {
 			width: calc(25% - 12px);
 			margin: 0 12px 0 0;
+
+			.swiper-slide {
+				border-radius: 1px;
+				overflow: hidden;
+			}
 		}
 
 		.mySwiper2 {
@@ -1245,6 +1250,11 @@
 				svg {
 					transform: translate(-50%, -50%) rotate(180deg);
 				}
+			}
+
+			.swiper-slide {
+				border-radius: 3px;
+				overflow: hidden;
 			}
 		}
 
@@ -1615,7 +1625,7 @@
 	&__type-col:nth-child(1) {
 		max-width: 430px;
 		width: 100%;
-		margin: 0 20px 0 0;
+		margin: 0 10px 0 0;
 
 		.dss-card__type-title {
 			color: rgba(0, 1, 1, 1);
@@ -3384,7 +3394,11 @@
 	}
 
 	.dss-card__type-col:nth-child(1) {
-		max-width: 449px;
+		max-width: 520px;
+
+		.size-wrap {
+			max-width: 523px;
+		}
 	}
 
 	.size-wrap__inner {
