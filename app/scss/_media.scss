@@ -144,11 +144,6 @@
 	}
 
 	.dss-order {
-		.dss-basket__mob-opt {
-			display: flex;
-			padding: 0 0 0 60px;
-			margin: 0 0 10px 0;
-		}
 
 		.dss-basket__mob-opt span {
 			display: flex;
@@ -167,7 +162,7 @@
 	}
 
 	.dss-order .dss-basket__content-top {
-		margin: 0;
+		margin: 0 0 10px 0;
 	}
 
 	.dss-order__top-col:nth-child(3) {
@@ -303,6 +298,23 @@
 
 
 @media (max-width: 991px) {
+
+	.dss-order__box-item-col:nth-child(2),
+	.dss-order__box-item-col:nth-child(3) {
+		width: 26%;
+	}
+
+	.dss-order__box-item-col:nth-child(1) {
+		margin: 0 10px 0 0;
+	}
+
+	.dss-order {
+		.dss-basket__mob-opt {
+			display: flex;
+			padding: 0 0 0 60px;
+		}
+	}
+
 	.dss-basket {
 		.dss-card__type-col:nth-child(1) {
 			max-width: 75vw;
