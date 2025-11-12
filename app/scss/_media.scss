@@ -224,6 +224,11 @@
 }
 
 @media (max-width: 1200px) {
+
+	.dss-card__type-col:nth-child(1) {
+		max-width: 235px;
+	}
+
 	.dss-item .thumbsSwiper .swiper-slide {
 		height: 60px;
 	}
