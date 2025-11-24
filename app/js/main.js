@@ -100,10 +100,6 @@ $(function () {
       $(this).next().slideToggle(300);
     });
   }
-і
-
-
-
 });
 
 
@@ -484,6 +480,11 @@ hasChildElements.forEach(el => {
 
 
 //
-
+  const phoneMask = IMask(
+    document.getElementById('phone'),
+    {
+      mask: '+{380} (00) 000-00-00'
+    }
+  );
 
 
